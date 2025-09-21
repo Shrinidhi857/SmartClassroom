@@ -1,0 +1,42 @@
+name: sihapp
+description: "Education app"
+
+publish_to: 'none'
+
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.9.2
+
+
+dependencies:
+  flutter:
+    sdk: flutter
+  google_fonts: ^6.2.1
+  cupertino_icons: ^1.0.8
+  flutter_drawing_board: ^0.9.8
+  video_player: ^2.10.0
+  socket_io_client: ^3.1.2
+  lottie: ^3.3.2
+
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0
+  flutter_launcher_icons: ^0.14.3
+
+flutter_launcher_icons:
+  android: "launcher_icon"
+  image_path: "assets/icon.png"
+  min_sdk_android: 21
+
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/images/google.png
+    - assets/light/logo.png
+    - assets/dark/logo.png
+    - assets/STUDENT.json
