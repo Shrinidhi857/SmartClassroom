@@ -9,14 +9,14 @@ import '../Canvas/CreatorCanvas.dart';
 import '../Canvas/ReceiverCanvas.dart';
 import '../components/MessagesModel.dart';
 
-class ClassroomPage extends StatefulWidget {
-  const ClassroomPage({super.key});
+class NewClassroomPage extends StatefulWidget {
+  const NewClassroomPage({super.key});
 
   @override
-  State<ClassroomPage> createState() => _ClassroomPageState();
+  State<NewClassroomPage> createState() => _ClassroomPageState();
 }
 
-class _ClassroomPageState extends State<ClassroomPage> with SingleTickerProviderStateMixin {
+class _ClassroomPageState extends State<NewClassroomPage> with SingleTickerProviderStateMixin {
 
   void onTapRecored() async {}
 
@@ -87,15 +87,6 @@ class _ClassroomPageState extends State<ClassroomPage> with SingleTickerProvider
             )
 
           ),
-          /*SizedBox(
-              height: MediaQuery.of(context).size.height * 0.3,
-              child: CreatorCanvas(
-                roomId: 'your-room-id',
-                username: 'Creator Name',
-                serverUrl: 'wss://websocketboard.onrender.com',
-              )
-
-          ),*/
 
 
           Expanded(
@@ -159,107 +150,111 @@ class _ClassroomPageState extends State<ClassroomPage> with SingleTickerProvider
 
 
   /// Landscape Layout
+  /// Landscape Layout - Fixed Canvas (No Scrolling)
   Widget _buildLandscapeLayout() {
-    return SingleChildScrollView( // <--- WRAP the Row with this widget
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.start, // Align children to the top
-        children: [
-          // Left: Drawing board with overlay
-          Expanded(
-            flex: 4,
-            child: AspectRatio( // Use AspectRatio to maintain a consistent shape
-              aspectRatio: 16 / 9, // Or any ratio that fits your design
-              child: Stack(
-                children: [
-                  // Canvas fills all available space
-                  Positioned.fill(
-                    child: ReceiverCanvas(
-                      roomId: 'your-room-id', // Same room ID as creator
-                      username: 'Viewer Name',
-                      serverUrl: 'wss://websocketboard.onrender.com',
-                    )
-
+    return Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        // Left: Drawing board with overlay - Takes full screen height
+        Expanded(
+          flex: 4,
+          child: SizedBox(
+            height: MediaQuery
+                .of(context)
+                .size
+                .height, // Full screen height
+            width: double.infinity,
+            child: Stack(
+              children: [
+                // Canvas fills all available space
+                Positioned.fill(
+                  child: ReceiverCanvas(
+                    roomId: 'your-room-id', // Same room ID as creator
+                    username: 'Viewer Name',
+                    serverUrl: 'wss://websocketboard.onrender.com',
                   ),
+                ),
 
-                  // Overlay for messages (takes part of screen height)
-                  if (_showMessagesOverlay)
-                    Align(
-                      alignment: Alignment.topRight,
-                      child: FractionallySizedBox(
-                        widthFactor: 0.5, // 90% width of canvas
-                        heightFactor: .7, // 40% height of canvas
-                        child: Container(
-                          margin: const EdgeInsets.all(16),
-                          decoration: BoxDecoration(
-                            color: Colors.white.withOpacity(0.95),
-                            borderRadius: BorderRadius.circular(12),
-                            boxShadow: [
-                              BoxShadow(
-                                color: Colors.black26,
-                                blurRadius: 8,
-                                spreadRadius: 2,
-                              ),
-                            ],
-                          ),
-                          child: MessageList(messages: messages),
+                // Overlay for messages (takes part of screen height)
+                if (_showMessagesOverlay)
+                  Align(
+                    alignment: Alignment.topRight,
+                    child: FractionallySizedBox(
+                      widthFactor: 0.5, // 50% width of canvas
+                      heightFactor: 0.7, // 70% height of canvas
+                      child: Container(
+                        margin: const EdgeInsets.all(16),
+                        decoration: BoxDecoration(
+                          color: Colors.white.withOpacity(0.95),
+                          borderRadius: BorderRadius.circular(12),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.black26,
+                              blurRadius: 8,
+                              spreadRadius: 2,
+                            ),
+                          ],
                         ),
+                        child: MessageList(messages: messages),
                       ),
                     ),
-                ],
-              ),
-            ),
-          ),
-
-          // Right: Circular buttons only
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Column(
-
-              children: [
-                const SizedBox(height: 20),
-                CircleAvatar(
-                  radius: 20,
-                  backgroundColor: Colors.blue,
-                  child: IconButton(
-                    icon: const Icon(Icons.message, color: Colors.white),
-                    onPressed: () {
-                      setState(() {
-                        _showMessagesOverlay = !_showMessagesOverlay;
-                      });
-                    },
                   ),
-                ),
-                const SizedBox(height: 20),
-
-                CircleAvatar(
-                  radius: 20,
-                  backgroundColor: Colors.red,
-                  child: IconButton(
-                    icon: const Icon(Icons.mic, color: Colors.white),
-                    onPressed: () {
-                      setState(() {
-                        _showMessagesOverlay = !_showMessagesOverlay;
-                      });
-                    },
-                  ),
-                ),
-                const SizedBox(height: 20),
-                CircleAvatar(
-                  radius: 20,
-                  backgroundColor: Colors.green,
-                  child: IconButton(
-                    icon: const Icon(Icons.help, color: Colors.white),
-                    onPressed: () {
-                      // handle questions overlay here
-                    },
-                  ),
-                ),
               ],
             ),
           ),
-        ],
-      ),
-    );
-  }
+        ),
 
-}
+        // Right: Circular buttons only
+        Container(
+          height: MediaQuery
+              .of(context)
+              .size
+              .height, // Full screen height
+          padding: const EdgeInsets.all(8.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            // Center buttons vertically
+            children: [
+              CircleAvatar(
+                radius: 20,
+                backgroundColor: Colors.blue,
+                child: IconButton(
+                  icon: const Icon(Icons.message, color: Colors.white),
+                  onPressed: () {
+                    setState(() {
+                      _showMessagesOverlay = !_showMessagesOverlay;
+                    });
+                  },
+                ),
+              ),
+              const SizedBox(height: 20),
+
+              CircleAvatar(
+                radius: 20,
+                backgroundColor: Colors.red,
+                child: IconButton(
+                  icon: const Icon(Icons.mic, color: Colors.white),
+                  onPressed: () {
+                    setState(() {
+                      _showMessagesOverlay = !_showMessagesOverlay;
+                    });
+                  },
+                ),
+              ),
+              const SizedBox(height: 20),
+              CircleAvatar(
+                radius: 20,
+                backgroundColor: Colors.green,
+                child: IconButton(
+                  icon: const Icon(Icons.help, color: Colors.white),
+                  onPressed: () {
+                    // handle questions overlay here
+                  },
+                ),
+              ),
+            ],
+          ),
+        ),
+      ],
+    );
+  }}

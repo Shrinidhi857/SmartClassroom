@@ -38,7 +38,7 @@ class _ForgotPageState extends State<ForgotPage> {
                   const SizedBox(height: 25),
 
                   Text(
-                    "Playmate",
+                    "SIH",
                     style: TextStyle(fontSize: 20),
                   ),
 

@@ -16,9 +16,10 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin {
 
 
-  void onTapNewRoom() async{Navigator.pushNamed(context, '/newclassroom');}
+  void onTapNewRoom() async{
+    Navigator.pushNamed(context,  '/classroom');}
   void onTapRecorded() async{}
-  void onTapJoinRoom() async{Navigator.pushNamed(context,  '/classroom');}
+  void onTapJoinRoom() async{Navigator.pushNamed(context, '/newclassroom');}
 
   Widget build(BuildContext context){
     final screenWidth = MediaQuery.of(context).size.width;

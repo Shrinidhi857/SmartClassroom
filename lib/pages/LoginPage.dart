@@ -38,14 +38,19 @@ class _LoginPageState extends State<LoginPage> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   // Logo
-                  Image.asset(getThemedImage(isDarkMode),scale:5,),
+                  Image.asset(
+                    getThemedImage(isDarkMode),
+                    width: 100,   // set desired width
+                    height: 100,  // set desired height
+                    fit: BoxFit.contain, // optional, controls how the image fits
+                  ),
                   const SizedBox(height: 25),
 
                   // App Name
-                  Text(
-                    "Playmate",
+                 /* Text(
+                    "SIH",
                     style: TextStyle(fontSize: 25,fontWeight: FontWeight.w900),
-                  ),
+                  ),*/
 
                   const SizedBox(height: 25),
 

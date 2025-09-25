@@ -510,6 +510,7 @@ class _CreatorCanvasState extends State<CreatorCanvas> {
 
           // Drawing area
           Flexible(
+
             child: Container(
               width: screenWidth,
               height: cardHeight,
@@ -527,18 +528,18 @@ class _CreatorCanvasState extends State<CreatorCanvas> {
                         color: Colors.white,
                       ),
                       child: GestureDetector(
-                        onPanStart: _onPanStart,
-                        onPanUpdate: _onPanUpdate,
-                        onPanEnd: _onPanEnd,
-                        child: CustomPaint(
-                          painter: DrawingPainter(
-                            strokes: _completedStrokes,
-                            currentStroke: _currentStroke,
-                            remoteStrokes: _remoteStrokes,
-                          ),
-                          size: Size(screenWidth, cardHeight),
+                          onPanStart: _onPanStart,
+                          onPanUpdate: _onPanUpdate,
+                          onPanEnd: _onPanEnd,
+                          child: CustomPaint(
+                            painter: DrawingPainter(
+                              strokes: _completedStrokes,
+                              currentStroke: _currentStroke,
+                              remoteStrokes: _remoteStrokes,
+                            ),
+                            size: Size(screenWidth, cardHeight),
 
-                        )
+                          )
 
                       ),
                     ),
@@ -646,14 +647,14 @@ class _CreatorCanvasState extends State<CreatorCanvas> {
           color: Theme.of(context).colorScheme.primary,
           shape: BoxShape.circle,
         ),
-        child: Icon(icon, color: Colors.white, size: 15),
+        child: Icon(icon, color: Theme.of(context).colorScheme.inversePrimary, size: 15),
       ),
     );
   }
 
   Widget _buildStrokeWidthSlider() {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 2),
       decoration: BoxDecoration(
         color: Colors.white.withOpacity(0.9),
         borderRadius: BorderRadius.circular(12),

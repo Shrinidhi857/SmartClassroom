@@ -51,13 +51,11 @@ class _RegisterPageState extends State<RegisterPage> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 //logo
-                Image.asset(getThemedImage(isDarkMode),scale:5,),
-                const SizedBox(height: 25,),
-
-                //app name
-                Text(
-                  "Playmate",
-                  style: TextStyle(fontSize: 30,fontWeight: FontWeight.bold),
+                Image.asset(
+                  getThemedImage(isDarkMode),
+                  width: 100,   // set desired width
+                  height: 100,  // set desired height
+                  fit: BoxFit.contain, // optional, controls how the image fits
                 ),
 
                 SizedBox(height: 25,),
