@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sihapp/pages/DownloadPage.dart';
 import 'package:sihapp/pages/JoinClassRoomPage.dart';
 import 'package:sihapp/pages/NewClassroomPage.dart';
 import 'package:sihapp/pages/ForgetPasswordPage.dart';
@@ -30,6 +31,7 @@ class MyApp extends StatelessWidget {
         '/forgotpassword': (context) =>  ForgotPage(),
         '/classroom': (context) =>NewClassroomPage() ,
         '/newclassroom': (context) =>   ClassroomPage(),
+        '/downloading':(context)=> DownloadPage()
 
       },
     );

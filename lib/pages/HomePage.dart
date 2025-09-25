@@ -2,8 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
-import 'package:sihapp/Canvas/Canvas.dart';
-import 'package:sihapp/components/WeblmPlayer.dart';
 import 'package:sihapp/components/homeCard.dart';
 
 class HomePage extends StatefulWidget {
@@ -16,10 +14,9 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin {
 
 
-  void onTapNewRoom() async{
-    Navigator.pushNamed(context,  '/classroom');}
-  void onTapRecorded() async{}
-  void onTapJoinRoom() async{Navigator.pushNamed(context, '/newclassroom');}
+  void onTapNewRoom() async{Navigator.pushNamed(context,  '/newclassroom');}
+  void onTapRecorded() async{Navigator.pushNamed(context,  '/downloading');}
+  void onTapJoinRoom() async{Navigator.pushNamed(context, '/classroom');}
 
   Widget build(BuildContext context){
     final screenWidth = MediaQuery.of(context).size.width;

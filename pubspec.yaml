@@ -40,3 +40,9 @@ flutter:
     - assets/light/logo.png
     - assets/dark/logo.png
     - assets/STUDENT.json
+    - assets/downloading.json
+    - assets/Share.json
+    - assets/clouddownload.json
+    - assets/classcontent.json
+
+
