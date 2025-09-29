@@ -61,7 +61,7 @@ Future<Map<String, String>?> showJoinClassDialog(BuildContext context) {
                     onPressed: () => Navigator.pop(context),
                     child: const Text(
                       "Cancel",
-                      style: TextStyle(color: Colors.grey),
+                      style: TextStyle(color: Colors.red),
                     ),
                   ),
                   const SizedBox(width: 8),

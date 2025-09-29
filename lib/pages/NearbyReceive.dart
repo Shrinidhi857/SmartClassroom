@@ -234,7 +234,7 @@ class _NearbyreceivePageState extends State<NearbyreceivePage> {
                       ? 'Discovering nearby devices... (${students.length} found)'
                       : 'Discovery stopped (${students.length} devices found)',
                   style: TextStyle(
-                    color: Theme.of(context).colorScheme.onPrimary,
+                    color: Theme.of(context).colorScheme.inversePrimary,
                     fontSize: 12,
                   ),
                 ),
@@ -298,7 +298,7 @@ class _NearbyreceivePageState extends State<NearbyreceivePage> {
                   Icon(
                     _isDiscovering ? Icons.radar : Icons.devices,
                     size: 64,
-                    color: Theme.of(context).colorScheme.onPrimary.withOpacity(0.5),
+                    color: Theme.of(context).colorScheme.inversePrimary,
                   ),
                   const SizedBox(height: 16),
                   Text(
@@ -309,7 +309,7 @@ class _NearbyreceivePageState extends State<NearbyreceivePage> {
                         : 'No students or docs match your search',
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                      color: Theme.of(context).colorScheme.onPrimary,
+                      color: Theme.of(context).colorScheme.inversePrimary,
                       fontSize: 16,
                     ),
                   ),

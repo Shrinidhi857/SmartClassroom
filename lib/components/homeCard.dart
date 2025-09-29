@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../pages/JoinClassRoomPage.dart';
 import '../pages/NewClassroomPage.dart';
 import 'dialogbox.dart';
 import 'joinDialogbox.dart';
@@ -56,10 +57,9 @@ class HomeCard extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => NewClassroomPage(
+                        builder: (context) =>ClassroomPage(
                           roomId: result['classroomid']!,   // use classroomName as roomId
                           username: result['userName']!,  // pass creator name
-                          serverUrl: "wss://websocketboard.onrender.com", // keep same server
                         ),
                       ),
                     );

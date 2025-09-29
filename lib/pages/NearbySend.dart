@@ -58,7 +58,7 @@ class _NearbysendPageState extends State<NearbysendPage> {
           actions: [
             TextButton(
               onPressed: _saveName,
-              child: const Text('Continue'),
+              child:  Text('Continue',style: TextStyle(color: Theme.of(context).colorScheme.inversePrimary),),
             ),
           ],
         ),
@@ -315,7 +315,7 @@ class _NearbysendPageState extends State<NearbysendPage> {
                       ? 'Advertising as "$userName" (${nearbyReceivers.length} receivers found)'
                       : 'Not advertising - tap the wifi icon to start',
                   style: TextStyle(
-                    color: Theme.of(context).colorScheme.onPrimary,
+                    color: Theme.of(context).colorScheme.inversePrimary,
                     fontSize: 12,
                   ),
                 ),
@@ -462,7 +462,7 @@ class _NearbysendPageState extends State<NearbysendPage> {
                   Icon(
                     _isAdvertising ? Icons.wifi_tethering : Icons.wifi_tethering_off,
                     size: 64,
-                    color: Theme.of(context).colorScheme.onPrimary.withOpacity(0.5),
+                    color: Theme.of(context).colorScheme.inversePrimary,
                   ),
                   const SizedBox(height: 16),
                   Text(
@@ -473,7 +473,7 @@ class _NearbysendPageState extends State<NearbysendPage> {
                         : 'No receivers match your search',
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                      color: Theme.of(context).colorScheme.onPrimary,
+                      color: Theme.of(context).colorScheme.inversePrimary,
                       fontSize: 16,
                     ),
                   ),
