@@ -24,37 +24,40 @@ class Nearbydownload extends StatelessWidget {
           .of(context)
           .colorScheme
           .secondary,
-      child: Padding(
-        padding: EdgeInsets.all(16.0),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Expanded(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                  SizedBox(
-                  height:120, // adjust as needed
-                  child: Lottie.asset(
-                    'assets/Share.json',
-                    fit: BoxFit.cover,
-                    repeat: true,
-                    animate: true,
-                  )),
-                  Text(
-                  "NeabyShare",
-                      style: GoogleFonts.roboto(
-                      color: Theme.of(context).colorScheme.inversePrimary,
-                      fontWeight: FontWeight.w900,
-                      fontSize: 20,
+      child: GestureDetector(
+      child:Padding(
+          padding: EdgeInsets.all(16.0),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Expanded(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                    SizedBox(
+                    height:120, // adjust as needed
+                    child: Lottie.asset(
+                      'assets/Share.json',
+                      fit: BoxFit.cover,
+                      repeat: true,
+                      animate: true,
+                    )),
+                    Text(
+                    "NeabyShare",
+                        style: GoogleFonts.roboto(
+                        color: Theme.of(context).colorScheme.inversePrimary,
+                        fontWeight: FontWeight.w900,
+                        fontSize: 20,
+                      ),
                     ),
+                  ],
                   ),
-                ],
                 ),
-              ),
-          ],
+            ],
+          ),
         ),
-      ),
+        onTap: ()=>{ Navigator.pushNamed(context, '/nearbypage')},
+      )
     );
   }
 

@@ -11,10 +11,10 @@ class DownloadPage extends StatefulWidget {
   const DownloadPage({super.key});
 
   @override
-  State<DownloadPage> createState() => _HomePageState();
+  State<DownloadPage> createState() =>  _DownloadPageState();
 }
 
-class _HomePageState extends State<DownloadPage> with SingleTickerProviderStateMixin {
+class _DownloadPageState extends State<DownloadPage> with SingleTickerProviderStateMixin {
   void onTapNearby() async{}
   void onTapCloud() async{}
   void onTapExport() async{}
@@ -40,16 +40,6 @@ class _HomePageState extends State<DownloadPage> with SingleTickerProviderStateM
           SingleChildScrollView(
             child: Column(
               children: [
-                /*SizedBox(
-                  width: screenWidth,
-                  height: 250, // adjust as needed
-                  child: Lottie.asset(
-                    'assets/downloading.json',
-                    fit: BoxFit.cover,
-                    repeat: true,
-                    animate: true,
-                  ),
-                ),*/
                 Nearbydownload(onTapNearbyHandling: onTapNearby,),
                 Clouddownload(onTapCloudHandling: onTapCloud,),
                 Classexport(onTapExportHandling: onTapExport,),

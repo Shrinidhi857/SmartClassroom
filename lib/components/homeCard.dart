@@ -14,6 +14,7 @@ class HomeCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     // Using a Card for the main container to get a nice shadow and rounded corners.
     return Card(
       margin: EdgeInsets.only(left: 5,right: 5),
@@ -34,23 +35,25 @@ class HomeCard extends StatelessWidget {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Icon(
-                      Icons.storage,
-                      size: 48.0,
-                      color: Theme.of(context).colorScheme.inversePrimary,
-                    ),
+                ClipRRect(
+                borderRadius: BorderRadius.circular(25),
+                child: Image.asset(
+                  'assets/images/workplace.png',
+                  height:60,
+                  fit: BoxFit.cover,
+                ),
+              ),
                     const SizedBox(height: 8.0),
                     Text(
-                      'Recorded',
+                      'Download',
                       style: TextStyle(
-                        fontSize: 18,
+                        fontSize: 10,
                         fontWeight: FontWeight.w500,
                         color: Theme.of(context).colorScheme.inversePrimary,
                       ),
                     ),
                   ],
                 ),
-
               ),
             ),
             const SizedBox(width: 16.0), // Spacing between the buttons
@@ -63,16 +66,19 @@ class HomeCard extends StatelessWidget {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Icon(
-                      Icons.new_label,
-                      size: 48.0,
-                      color: Theme.of(context).colorScheme.inversePrimary,
+                    ClipRRect(
+                      borderRadius: BorderRadius.circular(25),
+                      child: Image.asset(
+                        'assets/images/videoconference.png',
+                        height:60,
+                        fit: BoxFit.cover,
+                      ),
                     ),
                     const SizedBox(height: 8.0),
                     Text(
                       'JoinRoom',
                       style: TextStyle(
-                        fontSize: 18,
+                        fontSize: 10,
                         fontWeight: FontWeight.w500,
                         color: Theme.of(context).colorScheme.inversePrimary,
                       ),
@@ -92,16 +98,19 @@ class HomeCard extends StatelessWidget {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Icon(
-                      Icons.new_label,
-                      size: 48.0,
-                      color: Theme.of(context).colorScheme.inversePrimary,
+                    ClipRRect(
+                      borderRadius: BorderRadius.circular(25),
+                      child: Image.asset(
+                        'assets/images/classroom.png',
+                        height:60,
+                        fit: BoxFit.cover,
+                      ),
                     ),
                     const SizedBox(height: 8.0),
                     Text(
                       'New Room',
                       style: TextStyle(
-                        fontSize: 18,
+                        fontSize: 10,
                         fontWeight: FontWeight.w500,
                         color: Theme.of(context).colorScheme.inversePrimary,
                       ),
@@ -129,11 +138,8 @@ class HomeCard extends StatelessWidget {
         aspectRatio: 1 / 1,
         child: Container(
           decoration: BoxDecoration(
+            color:Theme.of(context).colorScheme.primary ,
             borderRadius: BorderRadius.circular(12.0),
-            border: Border.all(
-              color: Theme.of(context).colorScheme.inversePrimary, // ✅ works
-              width: 2,
-            ),
           ),
           child: child,
         ),

@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:sihapp/Nearby/Nearbyhandler.dart';
 import 'package:sihapp/pages/DownloadPage.dart';
 import 'package:sihapp/pages/JoinClassRoomPage.dart';
+import 'package:sihapp/pages/NearbyReceive.dart';
+import 'package:sihapp/pages/NearbySend.dart';
+import 'package:sihapp/pages/NearbyViewPage.dart';
 import 'package:sihapp/pages/NewClassroomPage.dart';
 import 'package:sihapp/pages/ForgetPasswordPage.dart';
 import 'package:sihapp/pages/HomePage.dart';
@@ -20,7 +24,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Playmate',
+      title: 'Padhaai',
       theme:lightMode,
       darkTheme: darkMode,
       home:  SplashPage(),
@@ -31,7 +35,10 @@ class MyApp extends StatelessWidget {
         '/forgotpassword': (context) =>  ForgotPage(),
         '/classroom': (context) =>NewClassroomPage() ,
         '/newclassroom': (context) =>   ClassroomPage(),
-        '/downloading':(context)=> DownloadPage()
+        '/downloading':(context)=> DownloadPage(),
+        '/nearbypage':(context)=>NearbyviewPage(),
+        '/nearbysend':(context)=>NearbysendPage(),
+        '/nearbyreceive':(context)=>NearbyreceivePage()
 
       },
     );

@@ -40,8 +40,7 @@ class _LoginPageState extends State<LoginPage> {
                   // Logo
                   Image.asset(
                     getThemedImage(isDarkMode),
-                    width: 100,   // set desired width
-                    height: 100,  // set desired height
+                    width: 150,   // set desired width// set desired height
                     fit: BoxFit.contain, // optional, controls how the image fits
                   ),
                   const SizedBox(height: 25),
@@ -114,36 +113,7 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                     ],
                   ),
-                  SizedBox(height: 15,),
-                  ElevatedButton(
-                    onPressed: () {  },
-                    child:
-                    SizedBox(
-                      height: 45,
-                      width: 200,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Container(
-                            height: 40,width:40,
-                            decoration: BoxDecoration(
-                                color: Theme.of(context).colorScheme.surface,  // Background color
-                                shape: BoxShape.circle,
-                                image: DecorationImage(
-                                  image: AssetImage('assets/images/google.png',), // Local image
-                                )
-                            ),
-                          ),
-                          SizedBox(width: 10,),
-                          Text("Signin with Google",
-                            style: TextStyle(
-                                color: Theme.of(context).colorScheme.secondary
-                            ),
-                          )
-                        ],
-                      ),
-                    ),
-                  ),
+
                 ]
             ),
           ),
