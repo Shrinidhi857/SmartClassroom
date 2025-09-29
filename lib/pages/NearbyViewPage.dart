@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
 
+import '../Nearby/NearbyAuto.dart';
+
 class NearbyviewPage extends StatefulWidget {
   const NearbyviewPage({super.key});
 
@@ -11,6 +13,28 @@ class NearbyviewPage extends StatefulWidget {
 
 class _NearbyviewPageState extends State<NearbyviewPage> {
   bool _autoConnect = false;
+
+  NearbyAutoManager? _manager;
+
+  void _toggleAutoConnect(bool val) {
+    setState(() => _autoConnect = val);
+
+    if (val) {
+      _manager = NearbyAutoManager(
+        userName: "User_${DateTime.now().millisecondsSinceEpoch}",
+        docs: ["doc1.pdf", "doc2.txt"], // TODO: replace with your picked files
+        onPeerUpdated: (peers) {
+          debugPrint("Peers updated: $peers");
+          // here you can update UI with available docs from others
+        },
+      );
+      _manager!.start();
+    } else {
+      _manager?.stop();
+      _manager = null;
+    }
+  }
+
 
   @override
   Widget build(BuildContext context) {

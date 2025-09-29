@@ -8,9 +8,17 @@ import 'package:sihapp/components/MessageCard.dart';
 import '../Canvas/CreatorCanvas.dart';
 import '../Canvas/ReceiverCanvas.dart';
 import '../components/MessagesModel.dart';
-
 class NewClassroomPage extends StatefulWidget {
-  const NewClassroomPage({super.key});
+  final String roomId;
+  final String username;
+  final String serverUrl;
+
+  const NewClassroomPage({
+    super.key,
+    required this.roomId,
+    required this.username,
+    required this.serverUrl,
+  });
 
   @override
   State<NewClassroomPage> createState() => _ClassroomPageState();
@@ -26,10 +34,10 @@ class _ClassroomPageState extends State<NewClassroomPage> with SingleTickerProvi
   bool _showMessagesOverlay = false;
 
   final List<Message> messages = [
-    Message(text: "Hey, how are you?", isSent: false),
+    /*Message(text: "Hey, how are you?", isSent: false),
     Message(text: "I'm good, thanks! How about you?", isSent: true),
     Message(text: "Doing great. Working on a Flutter app 😃", isSent: false),
-    Message(text: "That's awesome 🚀", isSent: true),
+    Message(text: "That's awesome 🚀", isSent: true),*/
   ];
 
   void _handleSendMessage(String text) {
@@ -80,9 +88,9 @@ class _ClassroomPageState extends State<NewClassroomPage> with SingleTickerProvi
           // Drawing board stays fixed
           SizedBox(
             height: MediaQuery.of(context).size.height * 0.3,
-            child:ReceiverCanvas(
-              roomId: 'your-room-id', // Same room ID as creator
-              username: 'Viewer Name',
+            child:CreatorCanvas(
+              roomId: widget.roomId, // Same room ID as creator
+              username: widget.username,
               serverUrl: 'wss://websocketboard.onrender.com',
             )
 

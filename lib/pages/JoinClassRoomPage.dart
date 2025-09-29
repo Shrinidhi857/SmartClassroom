@@ -6,10 +6,14 @@ import 'package:sihapp/components/AskQuestion.dart';
 import 'package:sihapp/components/MessageCard.dart';
 
 import '../Canvas/CreatorCanvas.dart';
+import '../Canvas/ReceiverCanvas.dart';
 import '../components/MessagesModel.dart';
 
 class ClassroomPage extends StatefulWidget {
-  const ClassroomPage({super.key});
+  final String roomId;
+  final String username;
+  const ClassroomPage({super.key,required this.roomId,
+    required this.username});
 
   @override
   State<ClassroomPage> createState() => _ClassroomPageState();
@@ -23,10 +27,6 @@ class _ClassroomPageState extends State<ClassroomPage> with SingleTickerProvider
   bool _showMessagesOverlay = false;
 
   final List<Message> messages = [
-    Message(text: "Hey, how are you?", isSent: false),
-    Message(text: "I'm good, thanks! How about you?", isSent: true),
-    Message(text: "Doing great. Working on a Flutter app 😃", isSent: false),
-    Message(text: "That's awesome 🚀", isSent: true),
   ];
 
   void _handleSendMessage(String text) {
@@ -69,11 +69,11 @@ class _ClassroomPageState extends State<ClassroomPage> with SingleTickerProvider
           // Drawing board stays fixed
           SizedBox(
             height: MediaQuery.of(context).size.height * 0.3,
-            child: CreatorCanvas(
-              roomId: 'your-room-id',
-              username: 'Creator Name',
+            child: ReceiverCanvas(
+              roomId: widget.roomId, // Same room ID as creator
+              username: widget.username,
               serverUrl: 'wss://websocketboard.onrender.com',
-            ),
+            )
           ),
 
           Expanded(

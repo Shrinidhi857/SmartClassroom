@@ -493,7 +493,7 @@ class _CreatorCanvasState extends State<CreatorCanvas> {
                 Expanded(
                   child: Text(
                     _connectionStatus,
-                    style: const TextStyle(fontSize: 12, fontWeight: FontWeight.bold),
+                    style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold, color:Colors.black),
                   ),
                 ),
                 if (_isInRoom) ...[
@@ -501,7 +501,7 @@ class _CreatorCanvasState extends State<CreatorCanvas> {
                   const SizedBox(width: 4),
                   Text(
                     '$_clientsInRoom',
-                    style: const TextStyle(fontSize: 12, fontWeight: FontWeight.bold),
+                    style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold,color:Colors.black),
                   ),
                 ],
               ],

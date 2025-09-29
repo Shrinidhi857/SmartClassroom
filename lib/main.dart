@@ -33,8 +33,6 @@ class MyApp extends StatelessWidget {
         '/home': (context) =>  HomePage(),
         '/profile': (context) =>  ProfilePage(),
         '/forgotpassword': (context) =>  ForgotPage(),
-        '/classroom': (context) =>NewClassroomPage() ,
-        '/newclassroom': (context) =>   ClassroomPage(),
         '/downloading':(context)=> DownloadPage(),
         '/nearbypage':(context)=>NearbyviewPage(),
         '/nearbysend':(context)=>NearbysendPage(),

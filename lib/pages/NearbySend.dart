@@ -84,22 +84,26 @@ class _NearbysendPageState extends State<NearbysendPage> {
     });
 
     try {
-      /*await nc.Nearby().startAdvertising(
-        userName,                           // endpoint name
-        "com.example.my_nearby_service",    // serviceId
-        nc.Strategy.P2P_CLUSTER,            // strategy
+      await nc.Nearby().startAdvertising(
+        userName,                     // 1st positional: endpointName
+        nc.Strategy.P2P_CLUSTER,      // 2nd positional: Strategy
+        serviceId: "com.example.my_nearby_service",   // ✅ must be named
         onConnectionInitiated: (endpointId, info) {
           debugPrint("Connection initiated with: ${info.endpointName}");
+
           nc.Nearby().acceptConnection(
             endpointId,
-                (endid, payload) {  // <-- This IS your onPayLoadRecieved positional argument
+            onPayLoadRecieved: (endid, payload) {
               debugPrint("Received payload from $endid, type: ${payload.type}");
+              if (payload.type == nc.PayloadType.BYTES) {
+                String data = utf8.decode(payload.bytes!);
+                debugPrint("Data received: $data");
+              }
             },
             onPayloadTransferUpdate: (endid, update) {
               debugPrint("Transfer update from $endid: ${update.status}");
-            }, onPayLoadRecieved: (String endpointId, nc.Payload payload) {  },
+            },
           );
-
         },
         onConnectionResult: (endpointId, status) {
           debugPrint("Connection result for $endpointId: $status");
@@ -113,7 +117,9 @@ class _NearbysendPageState extends State<NearbysendPage> {
           _connectedEndpoints.remove(endpointId);
           _removeDiscoveredReceiver(endpointId);
         },
-      );*/
+      );
+
+
     } catch (e) {
       debugPrint("Error starting advertising: $e");
       setState(() {
@@ -382,11 +388,12 @@ class _NearbysendPageState extends State<NearbysendPage> {
               children: [
                 ElevatedButton.icon(
                   onPressed: _pickFiles,
-                  icon: const Icon(Icons.attach_file),
+                  icon:  Icon(Icons.attach_file,color:Theme.of(context).colorScheme.inversePrimary,),
                   label: Text(
                     selectedFiles.isEmpty ? "Select Files to Send" : "Change Files (${selectedFiles.length})",
                     style: GoogleFonts.roboto(
                       fontWeight: FontWeight.w500,
+                      color:Theme.of(context).colorScheme.inversePrimary,
                       fontSize: 16,
                     ),
                   ),
